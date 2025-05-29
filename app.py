@@ -1,15 +1,4 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Привіт з на Render! Це Коханюк Наталя"
-
-
-
-
-'''from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -79,4 +68,4 @@ def delete_db_item(item_id):
 with app.app_context():
     db.create_all()
 if __name__ == '__main__':
-    app.run(debug=True)'''
+    app.run(debug=True)
