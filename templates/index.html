@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title>CRUD Flask App</title>
+</head>
+<body style="text-align:center;">
+    <h1>Список елементів</h1>
+    <form method="post" action="/create">
+        <input name="item" placeholder="Введіть елемент">
+        <button type="submit">Додати</button>
+    </form>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item }} <a href="/delete/{{ loop.index0 }}">Видалити</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
