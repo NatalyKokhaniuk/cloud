@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Збереження даних</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .nav-buttons a button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 8px;
+            margin: 5px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-buttons">
+        <a href="/3"><button>⬅️ Попередня сторінка</button></a> 
+        <a href="/5"><button>Наступна сторінка ➡️</button></a> 
+    </div>
+
+    <h1>Список елементів</h1>
+    <form method="post" action="/create">
+        <input name="item" placeholder="Введіть елемент">
+        <button type="submit">Додати</button>
+    </form>
+
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.content }} 
+            <a href="/delete/{{ item.id }}">🗑 Видалити</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
