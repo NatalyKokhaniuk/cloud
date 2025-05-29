@@ -13,7 +13,6 @@ import os
 
 app = Flask(__name__)
 
-# Простий список для зберігання елементів (у реальних додатках — база даних)
 items = []
 
 @app.route("/")
@@ -35,13 +34,16 @@ def delete(index):
 
 @app.route("/3.html")
 def page3():
-    # Припускаємо, що 3.html лежить у папці templates
     return render_template("3.html")
 
-# Якщо 3.html у static, використай це замість render_template:
-# @app.route("/3.html")
-# def page3():
-#     return send_from_directory('static', '3.html')
+@app.route("/4")
+def page4():
+    items = Item.query.all()
+    return render_template("4.html", items=items)
+
+@app.route("/5.html")
+def page5():
+    return render_template("5.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
